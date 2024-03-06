@@ -16,6 +16,7 @@ require("toggleterm").setup{
     persist_size = true,
     direction = "float",
     close_on_exit = true,
+    shell = "fish",
     float_opts = {
         border = "single",  -- Changed to single border style
         winblend = 0,
