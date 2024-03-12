@@ -46,8 +46,8 @@ return require('packer').startup(function(use)
 --
 --            -- LSP Support
 --            {'neovim/nvim-lspconfig'},
---            -- Autocompletion
 --            {'hrsh7th/nvim-cmp'},
+--            -- Autocompletion
 --            {'hrsh7th/cmp-nvim-lsp'},
 --            {'L3MON4D3/LuaSnip'},
 --        }
@@ -55,8 +55,13 @@ return require('packer').startup(function(use)
     use {
         'williamboman/mason.nvim',
         'williamboman/mason-lspconfig.nvim',
-        'neovim/nvim-lspconfig'
-      }
+        'neovim/nvim-lspconfig',
+        -- Autocompletion
+        'hrsh7th/cmp-nvim-lsp',
+        'hrsh7th/nvim-cmp',
+        'L3MON4D3/LuaSnip',
+
+    }
     use {"akinsho/toggleterm.nvim", tag = '*', config = function()
         require("toggleterm").setup()
     end}
