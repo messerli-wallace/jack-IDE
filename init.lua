@@ -1,2 +1,2 @@
 require("jack")
-print("Hello config creation!")
+-- print("Hello config creation!")

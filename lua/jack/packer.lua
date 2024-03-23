@@ -13,45 +13,25 @@ return require('packer').startup(function(use)
         requires = { {'nvim-lua/plenary.nvim'} }
     }
 
---    use ({ 
---        "rose-pine/neovim", 
---        as = "rose-pine",
---        config = function()
---            vim.cmd('colorscheme rose-pine')
---        end
---
---    })
-
     use ({
         "polirritmico/monokai-nightasty.nvim",
         as = "monokai-nightasty",
         config = function()
             vim.cmd('colorscheme monokai-nightasty')
-            vim.opt.colorcolumn = '0'
+            vim.opt.colorcolumn = '0' -- colored column that usually shows up in the middle of the screen
         end
     })
 
     use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+
     use('nvim-treesitter/playground')
+
     use('ThePrimeagen/harpoon')
+
     use('mbbill/undotree')
+
     use('tpope/vim-fugitive')
---    use {
---        'VonHeikemen/lsp-zero.nvim',
---        branch = 'v3.x',
---        requires = {
---            --- Uncomment the two plugins below if you want to manage the language servers from neovim
---            {'williamboman/mason.nvim'},
---            {'williamboman/mason-lspconfig.nvim'},
---
---            -- LSP Support
---            {'neovim/nvim-lspconfig'},
---            {'hrsh7th/nvim-cmp'},
---            -- Autocompletion
---            {'hrsh7th/cmp-nvim-lsp'},
---            {'L3MON4D3/LuaSnip'},
---        }
---    }
+    -- lsp stuff
     use {
         'williamboman/mason.nvim',
         'williamboman/mason-lspconfig.nvim',
@@ -62,6 +42,7 @@ return require('packer').startup(function(use)
         'L3MON4D3/LuaSnip',
 
     }
+
     use {"akinsho/toggleterm.nvim", tag = '*', config = function()
         require("toggleterm").setup()
     end}

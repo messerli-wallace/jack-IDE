@@ -1,3 +1,4 @@
+-- toggles the terminal on and off the screen
 require("toggleterm").setup{
     size = function(term)
         if term.direction == "horizontal" then
@@ -27,6 +28,7 @@ require("toggleterm").setup{
     },
 }
 
+-- remaps
 local opts = {noremap = true}
 vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
 vim.api.nvim_buf_set_keymap(0, 't', 'jk', [[<C-\><C-n>]], opts)
@@ -38,7 +40,7 @@ vim.api.nvim_buf_set_keymap(0, 't', 'jk', [[<C-\><C-n>]], opts)
 --my commands
 vim.api.nvim_set_keymap('n', '<leader>t', ':ToggleTerm direction=vertical<CR>', { silent = true }) -- not needed since we have a command in the setup
 
-
+-- Ethan's extra stuff. Not tested
 -- vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
 -- Define terminal toggle functions

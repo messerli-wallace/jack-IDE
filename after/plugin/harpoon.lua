@@ -1,3 +1,4 @@
+-- harpoon is used to quickly switch from file to file
 local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
 

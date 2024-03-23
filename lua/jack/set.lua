@@ -1,4 +1,4 @@
---vim.opt.guicursor = ""
+--vim.opt.guicursor = "" -- would make the cursor the block instead of the line
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -14,7 +14,6 @@ vim.opt.smartindent = true
 
 vim.opt.swapfile = false
 vim.opt.backup = false
---vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 if vim.fn.has('win32') == 1 then
     vim.opt.undodir = os.getenv("USERPROFILE") .. "/.vim/undodir"
 else
