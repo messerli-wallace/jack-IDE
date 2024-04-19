@@ -2,7 +2,7 @@
 -- note that clangd, while installed, does not currently work with user header files...
 require("mason").setup()
 require("mason-lspconfig").setup({
-    ensure_installed = {"lua_ls","pyright","clangd"},
+    ensure_installed = {"lua_ls","pyright","clangd","tsserver"},
 --    handlers = {
 --       clangd = function()
 --           local clangd_opts = require('').nvim_lua_ls()
@@ -40,8 +40,14 @@ lspconfig.lua_ls.setup{
     flags = lsp_flags,
 }
 lspconfig.clangd.setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
 }
 lspconfig.pyright.setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+}
+lspconfig.tsserver.setup{
     on_attach = on_attach,
     flags = lsp_flags,
 }
