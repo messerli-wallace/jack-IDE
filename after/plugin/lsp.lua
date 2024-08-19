@@ -2,7 +2,7 @@
 -- note that clangd, while installed, does not currently work with user header files...
 require("mason").setup()
 require("mason-lspconfig").setup({
-    ensure_installed = {"lua_ls","pyright","clangd","tsserver"},
+    ensure_installed = {"lua_ls","pyright","clangd","tsserver","rust_analyzer"},
 --    handlers = {
 --       clangd = function()
 --           local clangd_opts = require('').nvim_lua_ls()
@@ -50,6 +50,20 @@ lspconfig.pyright.setup{
 lspconfig.tsserver.setup{
     on_attach = on_attach,
     flags = lsp_flags,
+}
+lspconfig.rust_analyzer.setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+    settings = {
+        ['rust-analyzer'] = {
+        diagnostics = {
+            enable = true,
+            experimental = {
+                enable = true,
+                }
+            }
+        }
+    }
 }
 
 -- cmp: autocomplete and stuff
