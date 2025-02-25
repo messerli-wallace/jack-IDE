@@ -38,6 +38,13 @@ local lspconfig = require("lspconfig")
 lspconfig.lua_ls.setup{
     on_attach = on_attach,
     flags = lsp_flags,
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = {"vim"},
+            },
+        },
+    },
 }
 lspconfig.clangd.setup{
     on_attach = on_attach,
