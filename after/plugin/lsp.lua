@@ -2,7 +2,7 @@
 -- note that clangd, while installed, does not currently work with user header files...
 require("mason").setup()
 require("mason-lspconfig").setup({
-    ensure_installed = {"lua_ls","pyright","clangd","ts_ls","rust_analyzer"},
+    ensure_installed = {"lua_ls","pyright","ruff","clangd","ts_ls","rust_analyzer"},
 --    handlers = {
 --       clangd = function()
 --           local clangd_opts = require('').nvim_lua_ls()
