@@ -1,5 +1,5 @@
 -- using mason for lsp management. It doesn't seem worth it to manually install, at least right now.
--- note that clangd, while installed, does not currently work with user header files...
+-- note that clangd, while installed, needs a separate header management program, like bear (I think it's called)
 require("mason").setup()
 require("mason-lspconfig").setup({
     ensure_installed = { "lua_ls", "pyright", "ruff", "clangd", "ts_ls", "rust_analyzer" },
@@ -33,32 +33,30 @@ local lsp_flags = {
     debounce_text_changes = 150, --150 is default. Debounce didChange notifications to the server by the given number in milliseconds. No debounce occurs if nil.
 }
 
--- specific lsp setup
-local lspconfig = require("lspconfig")
-lspconfig.lua_ls.setup {
-    on_attach = on_attach,
-    flags = lsp_flags,
+vim.lsp.config("lua_ls", {
     settings = {
         Lua = {
             diagnostics = {
-                globals = { "vim" },
-            },
-        },
+                globals = { "vim" } }
+        }
     },
-}
-lspconfig.clangd.setup {
     on_attach = on_attach,
     flags = lsp_flags,
-}
-lspconfig.pyright.setup {
+})
+
+vim.lsp.config("clangd", {
     on_attach = on_attach,
     flags = lsp_flags,
-}
-lspconfig.ts_ls.setup {
+})
+vim.lsp.config("pyright", {
     on_attach = on_attach,
     flags = lsp_flags,
-}
-lspconfig.rust_analyzer.setup {
+})
+vim.lsp.config("ts_ls", {
+    on_attach = on_attach,
+    flags = lsp_flags,
+})
+vim.lsp.config("rust_analyzer", {
     on_attach = on_attach,
     flags = lsp_flags,
     settings = {
@@ -71,7 +69,7 @@ lspconfig.rust_analyzer.setup {
             }
         }
     }
-}
+})
 
 -- cmp: autocomplete and stuff
 local cmp = require('cmp')
