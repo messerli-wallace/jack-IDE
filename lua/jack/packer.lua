@@ -10,10 +10,10 @@ return require('packer').startup(function(use)
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.5',
         -- or                            , branch = '0.1.x',
-        requires = { {'nvim-lua/plenary.nvim'} }
+        requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
-    use ({
+    use({
         "polirritmico/monokai-nightasty.nvim",
         as = "monokai-nightasty",
         config = function()
@@ -21,8 +21,9 @@ return require('packer').startup(function(use)
             vim.opt.colorcolumn = '0' -- colored column that usually shows up in the middle of the screen
         end
     })
+    use 'Mofiqul/vscode.nvim'
 
-    use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 
     use('nvim-treesitter/playground')
 
@@ -43,28 +44,26 @@ return require('packer').startup(function(use)
 
     }
 
-    -- formatter 
+    -- formatter
     use({
         "stevearc/conform.nvim",
         config = function()
-          require("conform").setup()
+            require("conform").setup()
         end,
     })
 
-    use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+    use { "akinsho/toggleterm.nvim", tag = '*', config = function()
         require("toggleterm").setup()
-    end}
+    end }
 
     use({
         'MeanderingProgrammer/render-markdown.nvim',
         after = { 'nvim-treesitter' },
-        requires = { 'echasnovski/mini.nvim', opt = true }, -- if you use the mini.nvim suite
+        -- requires = { 'echasnovski/mini.nvim', opt = true }, -- if you use the mini.nvim suite
         -- requires = { 'echasnovski/mini.icons', opt = true }, -- if you use standalone mini plugins
         -- requires = { 'nvim-tree/nvim-web-devicons', opt = true }, -- if you prefer nvim-web-devicons
         config = function()
             require('render-markdown').setup({})
         end,
     })
-
 end)
-
