@@ -66,4 +66,7 @@ return require('packer').startup(function(use)
             require('render-markdown').setup({})
         end,
     })
+
+    -- AI
+    use 'github/copilot.vim'
 end)
