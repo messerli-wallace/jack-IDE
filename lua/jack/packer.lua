@@ -13,14 +13,14 @@ return require('packer').startup(function(use)
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
-    use({
-        "polirritmico/monokai-nightasty.nvim",
-        as = "monokai-nightasty",
-        config = function()
-            vim.cmd('colorscheme monokai-nightasty')
-            vim.opt.colorcolumn = '0' -- colored column that usually shows up in the middle of the screen
-        end
-    })
+    --use({
+    --    "polirritmico/monokai-nightasty.nvim",
+    --    as = "monokai-nightasty",
+    --    config = function()
+    --        vim.cmd('colorscheme monokai-nightasty')
+    --        vim.opt.colorcolumn = '0' -- colored column that usually shows up in the middle of the screen
+    --    end
+    --})
     use 'Mofiqul/vscode.nvim'
 
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
